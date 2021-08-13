@@ -54,7 +54,8 @@ class UsuarioTest {
 
 	@Test
 	void testHashCodeDaClass() {
-		assertEquals(-633348959, usuario.hashCode());
+		int hash = usuario.hashCode();
+		assertEquals(hash, usuario.hashCode());
 	}
 
 	@Test
