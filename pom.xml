@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.blog</groupId>
 	<artifactId>projeto_blog</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>ProjetoBlog</name>
 	<description>Projeto Blog Spring Boot</description>
 	<properties>
@@ -20,6 +20,9 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+
+		<sonar.organization>danielso2007</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
 		<springdoc-openapi.version>1.5.10</springdoc-openapi.version>
 		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
