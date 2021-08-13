@@ -25,7 +25,7 @@ $do$;
 
 CREATE SEQUENCE public.album_id_seq
     INCREMENT 1
-    START 1
+    START 10
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
@@ -38,7 +38,7 @@ ALTER SEQUENCE public.album_id_seq
 
 CREATE SEQUENCE public.comentario_id_seq
     INCREMENT 1
-    START 1
+    START 10
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
@@ -51,7 +51,7 @@ ALTER SEQUENCE public.comentario_id_seq
 
 CREATE SEQUENCE public.foto_id_seq
     INCREMENT 1
-    START 1
+    START 10
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
@@ -64,7 +64,7 @@ ALTER SEQUENCE public.foto_id_seq
 
 CREATE SEQUENCE public.imagem_id_seq
     INCREMENT 1
-    START 1
+    START 10
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
@@ -77,7 +77,7 @@ ALTER SEQUENCE public.imagem_id_seq
 
 CREATE SEQUENCE public.link_id_seq
     INCREMENT 1
-    START 1
+    START 10
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
@@ -90,7 +90,7 @@ ALTER SEQUENCE public.link_id_seq
 
 CREATE SEQUENCE public.perfil_id_seq
     INCREMENT 1
-    START 1
+    START 10
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
@@ -103,7 +103,7 @@ ALTER SEQUENCE public.perfil_id_seq
 
 CREATE SEQUENCE public.post_id_seq
     INCREMENT 1
-    START 1
+    START 10
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
@@ -116,7 +116,7 @@ ALTER SEQUENCE public.post_id_seq
 
 CREATE SEQUENCE public.usuario_id_seq
     INCREMENT 1
-    START 1
+    START 10
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
