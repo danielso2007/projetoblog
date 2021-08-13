@@ -19,5 +19,5 @@ NC='\033[0m' # No Color
 echo -e "${YELLOW}Criando network...${NC}"
 docker network create net-blog
 echo -e "${YELLOW}Iniciando container...${NC}"
-docker-compose up -d
+docker-compose up -d --remove-orphans
 docker-compose ps

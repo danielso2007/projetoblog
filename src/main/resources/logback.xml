@@ -67,7 +67,35 @@
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
 	</logger>
-	<root level="DEBUG">
+	<logger name="_.s.w.s" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="o.f.c.i.s" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="o.f.core.internal.scanner" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="o.f.core.internal.command" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="o.f.c.internal.util" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="o.f.c.i.s.classpath" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="o.s.d.r.w" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+	<root level="ERROR">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
 	</root>

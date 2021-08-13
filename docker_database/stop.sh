@@ -17,5 +17,5 @@ LIGHT_GRAY='\033[0;37m'
 WHITE='\033[1;37m'
 NC='\033[0m' # No Color
 echo -e "${YELLOW}Parando container...${NC}"
-docker-compose stop
+docker-compose stop --remove-orphans
 docker-compose ps

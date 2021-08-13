@@ -43,8 +43,13 @@
 		<debug.properties>false</debug.properties>
 		<trace.properties>false</trace.properties>
 
-		<db.ddl-auto>create</db.ddl-auto>
-		<db.show_sql>true</db.show_sql>
+		<db.flyway.enabled>true</db.flyway.enabled>
+		<db.user>blog</db.user>
+		<db.password>1q2w3e</db.password>
+		<db.schema>public</db.schema>
+
+		<db.ddl-auto>none</db.ddl-auto>
+		<db.show_sql>false</db.show_sql>
 
 		<project.testresult.directory>${project.build.directory}/test-results</project.testresult.directory>
 		<jacoco.utReportFolder>${project.build.directory}/jacoco/test</jacoco.utReportFolder>
@@ -436,6 +441,12 @@
 		<profile>
 			<id>test</id>
 			<properties>
+				<db.flyway.enabled>true</db.flyway.enabled>
+				<db.user>blog</db.user>
+				<db.password>1q2w3e</db.password>
+				<db.schema>public</db.schema>
+				<api-docs-enabled>false</api-docs-enabled>
+				<swagger-ui-enabled>false</swagger-ui-enabled>
 				<debug.properties>false</debug.properties>
 				<trace.properties>false</trace.properties>
 				<spring.profiles.active>test</spring.profiles.active>
@@ -457,6 +468,12 @@
 		<profile>
 			<id>prod</id>
 			<properties>
+				<db.flyway.enabled>false</db.flyway.enabled>
+				<db.user></db.user>
+				<db.password></db.password>
+				<db.schema></db.schema>
+				<api-docs-enabled>false</api-docs-enabled>
+				<swagger-ui-enabled>false</swagger-ui-enabled>
 				<debug.properties>false</debug.properties>
 				<trace.properties>false</trace.properties>
 				<spring.profiles.active>prod</spring.profiles.active>

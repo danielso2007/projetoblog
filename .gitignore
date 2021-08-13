@@ -6,6 +6,7 @@ target/
 
 docker_database/data
 docker_database/dataPgadmin4
+node_modules
 
 ### STS ###
 .apt_generated

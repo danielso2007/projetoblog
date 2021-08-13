@@ -1,8 +1,8 @@
 version: "3.9"
 services:
-  pgsql-blog:
+  postgres-blog:
     image: postgres:13.3-alpine
-    container_name: pgsql-blog
+    container_name: postgres-blog
     restart: on-failure
     environment:
       - POSTGRES_USER=blog
@@ -13,9 +13,9 @@ services:
       - "pgsqlconfBlog:/etc/postgresql"
       - "pgsqldataBlog:/var/lib/postgresql/data"
       - "pgsqldblogsBlog:/var/log"
-  pgadmin4:
+  pgadmin4-blog:
     image: dpage/pgadmin4:latest
-    container_name: pgadmin-4
+    container_name: pgadmin4-blog
     restart: on-failure
     environment:
       - PGADMIN_DEFAULT_EMAIL=user@domain.com
@@ -27,7 +27,7 @@ services:
       - "pgadmin4conf:/pgadmin4/config_local.py"
       - "pgadmin4serverdefinitions:/pgadmin4/servers.json"
     depends_on:
-      - pgsql-blog
+      - postgres-blog
 
 volumes:
   pgsqlconfBlog:
