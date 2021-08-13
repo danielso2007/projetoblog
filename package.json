@@ -6,8 +6,7 @@
     "release": "standard-version",
     "test": "mvn -q test -P test"
   },
-  "standard-version": {
-  },
+  "standard-version": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danielso2007/projetoblog.git"
