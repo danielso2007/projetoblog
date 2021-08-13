@@ -1,14 +1,14 @@
--- Role: user_blog
--- DROP ROLE user_blog;
+-- Role: blog
+-- DROP ROLE blog;
 
 DO
 $do$
 BEGIN
    IF NOT EXISTS (
       SELECT FROM pg_catalog.pg_roles  -- SELECT list can be empty for this
-      WHERE  rolname = 'user_blog') THEN
+      WHERE  rolname = 'blog') THEN
 
-      CREATE ROLE user_blog WITH
+      CREATE ROLE blog WITH
           LOGIN
           SUPERUSER
           INHERIT

@@ -4,6 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+docker_database/data
+docker_database/dataPgadmin4
+
 ### STS ###
 .apt_generated
 .classpath

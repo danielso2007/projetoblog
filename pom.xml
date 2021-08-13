@@ -43,8 +43,8 @@
 		<debug.properties>false</debug.properties>
 		<trace.properties>false</trace.properties>
 
-		<db.ddl-auto>none</db.ddl-auto>
-		<db.show_sql>false</db.show_sql>
+		<db.ddl-auto>create</db.ddl-auto>
+		<db.show_sql>true</db.show_sql>
 
 		<project.testresult.directory>${project.build.directory}/test-results</project.testresult.directory>
 		<jacoco.utReportFolder>${project.build.directory}/jacoco/test</jacoco.utReportFolder>
