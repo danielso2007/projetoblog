@@ -5,7 +5,7 @@ on:
   # mas apenas para a ramificação principal.
   push:
     branches:
-    - master
+    - main
     - develop
     - 'release/**'
     tags:        
@@ -17,7 +17,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
-    - master
+    - main
     - develop
     - 'release/**'
     tags:        
