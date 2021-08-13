@@ -211,7 +211,7 @@ public class Usuario extends BaseAudit implements UserDetails {
 			return false;
 		}
 		Usuario other = (Usuario) obj;
-		return Objects.equals(email, other.email) && Objects.equals(nome, other.nome)
+		return Objects.equals(getId(), other.getId()) && Objects.equals(email, other.email) && Objects.equals(nome, other.nome)
 				&& Objects.equals(senha, other.senha) && Objects.equals(ultimoAcesso, other.ultimoAcesso);
 	}
 

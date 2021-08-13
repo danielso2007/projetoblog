@@ -46,16 +46,6 @@ public abstract class BaseAudit extends BaseEntity {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
-	public BaseAudit dataCriacao(Date dataCriacao) {
-		setDataCriacao(dataCriacao);
-		return this;
-	}
-
-	public BaseAudit dataAtualizacao(Date dataAtualizacao) {
-		setDataAtualizacao(dataAtualizacao);
-		return this;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

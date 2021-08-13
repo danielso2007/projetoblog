@@ -32,11 +32,6 @@ public abstract class BaseEntity implements Serializable {
 		this.id = id;
 	}
 
-	public BaseEntity id(Long id) {
-		setId(id);
-		return this;
-	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
