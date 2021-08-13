@@ -51,3 +51,8 @@ build/
 # Local environment
 .env
 
+/node_module
+/node_modules/**
+/node_modules/.bin/**
+package-lock.json
+

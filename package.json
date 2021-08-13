@@ -1,0 +1,31 @@
+{
+  "name": "ProjetoBlog",
+  "version": "0.0.1",
+  "description": "Projeto BLog em Spring Boot.",
+  "scripts": {
+    "release": "standard-version",
+    "test": "mvn -q test -P test"
+  },
+  "standard-version": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielso2007/projetoblog.git"
+  },
+  "keywords": [
+    "API",
+    "REST",
+    "Java",
+    "Spring",
+    "SpringBoot"
+  ],
+  "author": "Daniel Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielso2007/projetoblog/issues"
+  },
+  "homepage": "https://github.com/danielso2007/projetoblog",
+  "devDependencies": {
+    "standard-version": "9.3.1"
+  }
+}
