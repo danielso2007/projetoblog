@@ -10,6 +10,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import br.com.blog.ProjetoBlogApplication;
 import br.com.blog.testlifecyclemanager.CustomPostgresContainer;
 
 @ActiveProfiles("test")
@@ -23,7 +24,7 @@ class ProjetoBlogApplicationTests {
 	
 	@Test
 	void contextLoads() {
-		// Teste simples do load context spring.
+		ProjetoBlogApplication.main(new String[] {});
 		assertTrue(true);
 	}
 
