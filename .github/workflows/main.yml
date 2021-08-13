@@ -40,6 +40,7 @@ jobs:
           mvn -q -am -Ptest clean test jacoco:report
           bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
   Sonar:
+    needs: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
