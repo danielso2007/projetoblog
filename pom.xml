@@ -441,7 +441,6 @@
 		<profile>
 			<id>test</id>
 			<properties>
-				<db.flyway.enabled>true</db.flyway.enabled>
 				<db.user>blog</db.user>
 				<db.password>1q2w3e</db.password>
 				<db.schema>public</db.schema>
