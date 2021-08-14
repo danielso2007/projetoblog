@@ -56,6 +56,7 @@
 		<jacoco.utReportFile>${jacoco.utReportFolder}/test.exec</jacoco.utReportFile>
 		<junit.utReportFolder>${project.testresult.directory}/test</junit.utReportFolder>
 	</properties>
+
 	<dependencies>
 		<!-- Removendo o Tomcat para usar o Undertow -->
 		<dependency>
