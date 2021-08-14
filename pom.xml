@@ -14,6 +14,7 @@
 	<version>0.0.3-SNAPSHOT</version>
 	<name>ProjetoBlog</name>
 	<description>Projeto Blog Spring Boot</description>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
