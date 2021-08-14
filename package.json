@@ -1,6 +1,6 @@
 {
   "name": "ProjetoBlog",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Projeto BLog em Spring Boot.",
   "scripts": {
     "release": "standard-version",
