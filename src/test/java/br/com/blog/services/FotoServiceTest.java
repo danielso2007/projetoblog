@@ -23,18 +23,18 @@ import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.blog.entities.Post;
-import br.com.blog.repositories.PostRepository;
-import br.com.blog.services.impl.PostServiceImpl;
+import br.com.blog.entities.Foto;
+import br.com.blog.repositories.FotoRepository;
+import br.com.blog.services.impl.FotoServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
-class PostServiceTest {
+class FotoServiceTest {
 
 	@InjectMocks @Spy
-	private PostServiceImpl service;
+	private FotoServiceImpl service;
 	
 	@Mock
-	private PostRepository repository;
+	private FotoRepository repository;
 	
 	@BeforeEach
 	void init() {
@@ -66,7 +66,7 @@ class PostServiceTest {
 	
 	@Test
 	void testFindById() {
-		Optional<Post> retorno = Optional.of(new Post());
+		Optional<Foto> retorno = Optional.of(new Foto());
 		Long id = 10L;
 		doReturn(retorno).when(repository).findById(id);
 		assertTrue(service.findById(id).isPresent());
@@ -79,10 +79,10 @@ class PostServiceTest {
 	
 	@Test
 	void testSave() {
-		Post post = new Post();
-		post.setId(1L);
-		doReturn(post).when(repository).save(post);
-		assertTrue(service.save(post).isPresent());
+		Foto foto = new Foto();
+		foto.setId(1L);
+		doReturn(foto).when(repository).save(foto);
+		assertTrue(service.save(foto).isPresent());
 	}
 	
 	@Test
@@ -93,35 +93,35 @@ class PostServiceTest {
 	@Test
 	void testUpdateEntidadeNaoExiste() {
 		Long id = 99L;
-		Post post = new Post();
-		post.setId(id);
+		Foto foto = new Foto();
+		foto.setId(id);
 		doReturn(Optional.empty()).when(repository).findById(id);
-		assertEquals(Optional.empty(), service.update(post, id));
+		assertEquals(Optional.empty(), service.update(foto, id));
 	}
 	
 	@Test
 	void testUpdate() {
 		Long id = 99L;
-		Post post = new Post();
-		post.setId(id);
-		Optional<Post> retorno = Optional.of(post);
+		Foto foto = new Foto();
+		foto.setId(id);
+		Optional<Foto> retorno = Optional.of(foto);
 		doReturn(retorno).when(repository).findById(id);
-		doReturn(post).when(repository).save(post);
-		assertTrue(service.update(post, id).isPresent());
+		doReturn(foto).when(repository).save(foto);
+		assertTrue(service.update(foto, id).isPresent());
 	}
 	
 	@Test
 	void testFindAll() {
-		Post post = new Post();
-		List<Post> retornoLista = new ArrayList<>();
-		retornoLista.add(post);
+		Foto foto = new Foto();
+		List<Foto> retornoLista = new ArrayList<>();
+		retornoLista.add(foto);
 		doReturn(retornoLista).when(repository).findAll();
 		assertEquals(1, service.findAll().size());
 	}
 	
 	@Test
 	void testGetEntityClass() {
-		assertEquals(Post.class, service.getEntityClass());
+		assertEquals(Foto.class, service.getEntityClass());
 	}
 	
 }

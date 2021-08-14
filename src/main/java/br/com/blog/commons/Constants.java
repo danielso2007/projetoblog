@@ -1,4 +1,4 @@
-package br.com.blog;
+package br.com.blog.commons;
 
 public final class Constants {
 	

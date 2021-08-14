@@ -23,18 +23,18 @@ import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.blog.entities.Post;
-import br.com.blog.repositories.PostRepository;
-import br.com.blog.services.impl.PostServiceImpl;
+import br.com.blog.entities.Link;
+import br.com.blog.repositories.LinkRepository;
+import br.com.blog.services.impl.LinkServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
-class PostServiceTest {
+class LinkServiceTest {
 
 	@InjectMocks @Spy
-	private PostServiceImpl service;
+	private LinkServiceImpl service;
 	
 	@Mock
-	private PostRepository repository;
+	private LinkRepository repository;
 	
 	@BeforeEach
 	void init() {
@@ -66,7 +66,7 @@ class PostServiceTest {
 	
 	@Test
 	void testFindById() {
-		Optional<Post> retorno = Optional.of(new Post());
+		Optional<Link> retorno = Optional.of(new Link());
 		Long id = 10L;
 		doReturn(retorno).when(repository).findById(id);
 		assertTrue(service.findById(id).isPresent());
@@ -79,10 +79,10 @@ class PostServiceTest {
 	
 	@Test
 	void testSave() {
-		Post post = new Post();
-		post.setId(1L);
-		doReturn(post).when(repository).save(post);
-		assertTrue(service.save(post).isPresent());
+		Link link = new Link();
+		link.setId(1L);
+		doReturn(link).when(repository).save(link);
+		assertTrue(service.save(link).isPresent());
 	}
 	
 	@Test
@@ -93,35 +93,35 @@ class PostServiceTest {
 	@Test
 	void testUpdateEntidadeNaoExiste() {
 		Long id = 99L;
-		Post post = new Post();
-		post.setId(id);
+		Link link = new Link();
+		link.setId(id);
 		doReturn(Optional.empty()).when(repository).findById(id);
-		assertEquals(Optional.empty(), service.update(post, id));
+		assertEquals(Optional.empty(), service.update(link, id));
 	}
 	
 	@Test
 	void testUpdate() {
 		Long id = 99L;
-		Post post = new Post();
-		post.setId(id);
-		Optional<Post> retorno = Optional.of(post);
+		Link link = new Link();
+		link.setId(id);
+		Optional<Link> retorno = Optional.of(link);
 		doReturn(retorno).when(repository).findById(id);
-		doReturn(post).when(repository).save(post);
-		assertTrue(service.update(post, id).isPresent());
+		doReturn(link).when(repository).save(link);
+		assertTrue(service.update(link, id).isPresent());
 	}
 	
 	@Test
 	void testFindAll() {
-		Post post = new Post();
-		List<Post> retornoLista = new ArrayList<>();
-		retornoLista.add(post);
+		Link link = new Link();
+		List<Link> retornoLista = new ArrayList<>();
+		retornoLista.add(link);
 		doReturn(retornoLista).when(repository).findAll();
 		assertEquals(1, service.findAll().size());
 	}
 	
 	@Test
 	void testGetEntityClass() {
-		assertEquals(Post.class, service.getEntityClass());
+		assertEquals(Link.class, service.getEntityClass());
 	}
 	
 }

@@ -23,18 +23,18 @@ import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.blog.entities.Post;
-import br.com.blog.repositories.PostRepository;
-import br.com.blog.services.impl.PostServiceImpl;
+import br.com.blog.entities.Usuario;
+import br.com.blog.repositories.UsuarioRepository;
+import br.com.blog.services.impl.UsuarioServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
-class PostServiceTest {
+class UsuarioServiceTest {
 
 	@InjectMocks @Spy
-	private PostServiceImpl service;
+	private UsuarioServiceImpl service;
 	
 	@Mock
-	private PostRepository repository;
+	private UsuarioRepository repository;
 	
 	@BeforeEach
 	void init() {
@@ -66,7 +66,7 @@ class PostServiceTest {
 	
 	@Test
 	void testFindById() {
-		Optional<Post> retorno = Optional.of(new Post());
+		Optional<Usuario> retorno = Optional.of(new Usuario());
 		Long id = 10L;
 		doReturn(retorno).when(repository).findById(id);
 		assertTrue(service.findById(id).isPresent());
@@ -79,10 +79,10 @@ class PostServiceTest {
 	
 	@Test
 	void testSave() {
-		Post post = new Post();
-		post.setId(1L);
-		doReturn(post).when(repository).save(post);
-		assertTrue(service.save(post).isPresent());
+		Usuario usuario = new Usuario();
+		usuario.setId(1L);
+		doReturn(usuario).when(repository).save(usuario);
+		assertTrue(service.save(usuario).isPresent());
 	}
 	
 	@Test
@@ -93,35 +93,35 @@ class PostServiceTest {
 	@Test
 	void testUpdateEntidadeNaoExiste() {
 		Long id = 99L;
-		Post post = new Post();
-		post.setId(id);
+		Usuario usuario = new Usuario();
+		usuario.setId(id);
 		doReturn(Optional.empty()).when(repository).findById(id);
-		assertEquals(Optional.empty(), service.update(post, id));
+		assertEquals(Optional.empty(), service.update(usuario, id));
 	}
 	
 	@Test
 	void testUpdate() {
 		Long id = 99L;
-		Post post = new Post();
-		post.setId(id);
-		Optional<Post> retorno = Optional.of(post);
+		Usuario usuario = new Usuario();
+		usuario.setId(id);
+		Optional<Usuario> retorno = Optional.of(usuario);
 		doReturn(retorno).when(repository).findById(id);
-		doReturn(post).when(repository).save(post);
-		assertTrue(service.update(post, id).isPresent());
+		doReturn(usuario).when(repository).save(usuario);
+		assertTrue(service.update(usuario, id).isPresent());
 	}
 	
 	@Test
 	void testFindAll() {
-		Post post = new Post();
-		List<Post> retornoLista = new ArrayList<>();
-		retornoLista.add(post);
+		Usuario usuario = new Usuario();
+		List<Usuario> retornoLista = new ArrayList<>();
+		retornoLista.add(usuario);
 		doReturn(retornoLista).when(repository).findAll();
 		assertEquals(1, service.findAll().size());
 	}
 	
 	@Test
 	void testGetEntityClass() {
-		assertEquals(Post.class, service.getEntityClass());
+		assertEquals(Usuario.class, service.getEntityClass());
 	}
 	
 }

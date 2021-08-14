@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.blog.commons.services.impl.BaseService;
 import br.com.blog.entities.Post;
 import br.com.blog.repositories.PostRepository;
-import br.com.blog.services.IPostService;
+import br.com.blog.services.PostService;
 
-public class PostService extends BaseService<Post, Long, PostRepository> implements IPostService {
+public class PostServiceImpl extends BaseService<Post, Long, PostRepository> implements PostService {
 
 	@Autowired
-	public PostService(PostRepository repository) {
+	public PostServiceImpl(PostRepository repository) {
 		super(repository);
 	}
 
