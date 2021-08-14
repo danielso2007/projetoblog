@@ -11,8 +11,8 @@ spring:
   datasource:
     driverClassName: 'org.postgresql.Driver'
     url: '${DB_URL:jdbc:postgresql://localhost:5432/blog}'
-    username: '${DB_USER:user_blog}'
-    password: '${DB_PASSWORD:1q2w3e}'
+    username: '${DB_USER:@db.user@}'
+    password: '${DB_PASSWORD:@db.password@}'
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       connectionTimeout: 3000
@@ -26,12 +26,14 @@ spring:
     open-in-view: true
     show_sql: '${HOW_SQL:@db.show_sql@}'
     hibernate:
-      ddl-auto: '@db.ddl-auto@'
+        ddl-auto: '@db.ddl-auto@'
   flyway:
-    user: '${DB_USER:user_blog}'
-    password: '${DB_PASSWORD:1q2w3e}'
-    schemas: '${DB_SCHEMAS:blog}'
+    user: '${DB_USER:@db.user@}'
+    password: '${DB_PASSWORD:@db.password@}'
+    schemas: '${DB_SCHEMAS:@db.schema@}'
     clean-disabled: false
+    baseline-on-migrate: true
+    enabled: '${DB_FLYWAY:@db.flyway.enabled@}'
 debug: '${DEBUG:@debug.properties@}'
 trace: '${TRACE:@trace.properties@}'
 server:

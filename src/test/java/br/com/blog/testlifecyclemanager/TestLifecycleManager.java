@@ -20,7 +20,7 @@ import org.testcontainers.utility.DockerImageName;
 @Testcontainers
 public abstract class TestLifecycleManager {
 
-	private static final String USER = "user_blog";
+	private static final String USER = "blog";
 	private static final String PASSWORD = "1q2w3e";
 	private static final String DATABASE = "blog";
 
