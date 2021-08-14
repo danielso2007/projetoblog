@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.blog</groupId>
 	<artifactId>projeto_blog</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>ProjetoBlog</name>
 	<description>Projeto Blog Spring Boot</description>
 
