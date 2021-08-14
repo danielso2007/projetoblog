@@ -45,7 +45,7 @@
 		<debug.properties>false</debug.properties>
 		<trace.properties>false</trace.properties>
 
-		<db.flyway.enabled>true</db.flyway.enabled>
+		<db.flyway.enabled>false</db.flyway.enabled>
 		<db.user>blog</db.user>
 		<db.password>1q2w3e</db.password>
 		<db.schema>public</db.schema>
