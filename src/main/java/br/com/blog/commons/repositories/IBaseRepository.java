@@ -1,4 +1,4 @@
-package br.com.blog.repositories;
+package br.com.blog.commons.repositories;
 
 import java.io.Serializable;
 
