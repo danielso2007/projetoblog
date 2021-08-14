@@ -9,10 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 
 import br.com.blog.enumerator.Roles;
@@ -24,10 +21,7 @@ public class Perfil extends BaseEntity implements GrantedAuthority {
 
 	private static final long serialVersionUID = -2787795722974071762L;
 
-	@NotNull(message = "O nome não pode ser nulo")
-	@NotEmpty(message = "O nome não pode ser vazio")
-	@Length(min = 5, max = 20, message = "O nome deve ter no mínimo 5 caracteres")
-	@Column(name = "nome", length = 20, nullable = false)
+	@Column(name = "nome", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Roles role;
 

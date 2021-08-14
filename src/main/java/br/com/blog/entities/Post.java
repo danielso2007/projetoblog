@@ -86,6 +86,26 @@ public class Post extends BaseAudit {
 		this.imagens = imagens;
 	}
 
+	public Post texto(String texto) {
+		setTexto(texto);
+		return this;
+	}
+
+	public Post usuario(Usuario usuario) {
+		setUsuario(usuario);
+		return this;
+	}
+
+	public Post comentarios(Set<Comentario> comentarios) {
+		setComentarios(comentarios);
+		return this;
+	}
+
+	public Post imagens(Set<Imagem> imagens) {
+		setImagens(imagens);
+		return this;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

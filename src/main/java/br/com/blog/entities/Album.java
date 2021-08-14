@@ -92,6 +92,21 @@ public class Album extends BaseAudit {
 		this.fotos = fotos;
 	}
 
+	public Album titulo(String titulo) {
+		setTitulo(titulo);
+		return this;
+	}
+
+	public Album descricao(String descricao) {
+		setDescricao(descricao);
+		return this;
+	}
+
+	public Album usuario(Usuario usuario) {
+		setUsuario(usuario);
+		return this;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

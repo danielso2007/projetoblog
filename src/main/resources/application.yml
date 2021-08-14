@@ -26,7 +26,7 @@ spring:
     open-in-view: true
     show_sql: '${HOW_SQL:@db.show_sql@}'
     hibernate:
-      ddl-auto: '@db.ddl-auto@'
+        ddl-auto: '@db.ddl-auto@'
   flyway:
     user: '${DB_USER:@db.user@}'
     password: '${DB_PASSWORD:@db.password@}'

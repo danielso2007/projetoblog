@@ -1,6 +1,5 @@
 package br.com.blog.entities;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +47,7 @@ public class Usuario extends BaseAudit implements UserDetails {
 
 	@NotEmpty(message = "A senha não pode ser vazio")
 	@NotNull(message = "A senha não pode ser nulo")
-	@Length(min = 50, max = 100)
+	@Length(min = 10, max = 100)
 	@Column(length = 100, nullable = false)
 	private String senha;
 
@@ -68,8 +67,8 @@ public class Usuario extends BaseAudit implements UserDetails {
 	@OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Comentario> comentarios;
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	private List<Perfil> perfis = new ArrayList<>();
+	@ManyToMany
+	private List<Perfil> perfis;
 
 	public Usuario() {
 	}
