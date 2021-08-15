@@ -72,12 +72,14 @@ public abstract class BaseService<E extends BaseEntity, K extends Serializable, 
 		return getRepository().findById(id);
 	}
 
+	@Transactional
 	@Override
 	public Optional<E> save(E entity) {
 		logger.debug("Salvando registro {}", getEntityClass());
 		return Optional.ofNullable(getRepository().save(entity));
 	}
 
+	@Transactional
 	@Override
 	public Optional<E> update(E entity, K id) {
 		if (entity == null) {
