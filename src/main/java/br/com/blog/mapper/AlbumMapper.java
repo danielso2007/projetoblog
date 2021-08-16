@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import br.com.blog.dto.AlbumDTO;
 import br.com.blog.entities.Album;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AlbumMapper {
 
 	AlbumMapper INSTANCE = Mappers.getMapper(AlbumMapper.class);

@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import br.com.blog.dto.ComentarioDTO;
 import br.com.blog.entities.Comentario;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ComentarioMapper {
 
 	ComentarioMapper INSTANCE = Mappers.getMapper(ComentarioMapper.class);

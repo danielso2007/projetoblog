@@ -7,7 +7,7 @@ import org.mapstruct.factory.Mappers;
 import br.com.blog.dto.PerfilDTO;
 import br.com.blog.entities.Perfil;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface PerfilMapper {
 
 	PerfilMapper INSTANCE = Mappers.getMapper(PerfilMapper.class);

@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import br.com.blog.dto.LinkDTO;
 import br.com.blog.entities.Link;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface LinkMapper {
 
 	LinkMapper INSTANCE = Mappers.getMapper(LinkMapper.class);

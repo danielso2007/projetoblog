@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import br.com.blog.dto.UsuarioDTO;
 import br.com.blog.entities.Usuario;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UsuarioMapper {
 
 	UsuarioMapper INSTANCE = Mappers.getMapper(UsuarioMapper.class);
@@ -21,6 +21,7 @@ public interface UsuarioMapper {
 	@Mapping(target = "albuns", ignore = true)
 	@Mapping(target = "comentarios", ignore = true)
 	@Mapping(target = "perfis", ignore = true)
+	@Mapping(target = "authorities", ignore = true)
 	public Usuario toUsuario(UsuarioDTO dto);
 
 	@Mapping(target = "dataCriacao", ignore = true)
@@ -31,6 +32,7 @@ public interface UsuarioMapper {
 	@Mapping(target = "albuns", ignore = true)
 	@Mapping(target = "comentarios", ignore = true)
 	@Mapping(target = "perfis", ignore = true)
+	@Mapping(target = "authorities", ignore = true)
 	public void toUsuario(UsuarioDTO dto, @MappingTarget Usuario entity);
 
 	public UsuarioDTO toUsuarioDTO(Usuario entity);

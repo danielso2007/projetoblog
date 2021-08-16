@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import br.com.blog.dto.ImagemDTO;
 import br.com.blog.entities.Imagem;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ImagemMapper {
 
 	ImagemMapper INSTANCE = Mappers.getMapper(ImagemMapper.class);
