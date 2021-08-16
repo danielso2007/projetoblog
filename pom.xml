@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.blog</groupId>
 	<artifactId>projeto_blog</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>ProjetoBlog</name>
 	<description>Projeto Blog Spring Boot</description>
 
@@ -30,6 +30,8 @@
 		<sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version>
 		<properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
 		<org.testcontainers.version>1.16.0</org.testcontainers.version>
+		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		<jjwt.version>0.9.1</jjwt.version>
 
 		<api-docs-enabled>false</api-docs-enabled>
 		<swagger-ui-enabled>false</swagger-ui-enabled>
@@ -106,9 +108,26 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-hateoas</artifactId>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>${org.mapstruct.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- JWT Token -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jjwt.version}</version>
+		</dependency>
+
 
 		<!-- spring security -->
 		<dependency>
@@ -119,6 +138,13 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
+		</dependency>
+
+		<!-- spring security test -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -180,13 +206,6 @@
 			<artifactId>flyway-core</artifactId>
 		</dependency>
 
-		<!-- spring security test -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
 		<!-- Testes -->
 		<dependency>
 			<groupId>org.testcontainers</groupId>
@@ -246,6 +265,13 @@
 					<release>${java.version}</release>
 					<source>${maven.compiler.source}</source>
 					<target>${maven.compiler.target}</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${org.mapstruct.version}</version>
+						</path>
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 			<plugin>

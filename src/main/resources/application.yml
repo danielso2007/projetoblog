@@ -1,4 +1,6 @@
 spring:
+  devtools:
+    add-properties: false
   application:
     name: '@project.artifactId@'
   profiles:
@@ -31,9 +33,25 @@ spring:
     user: '${DB_USER:@db.user@}'
     password: '${DB_PASSWORD:@db.password@}'
     schemas: '${DB_SCHEMAS:@db.schema@}'
-    clean-disabled: false
-    baseline-on-migrate: true
     enabled: '${DB_FLYWAY:@db.flyway.enabled@}'
+  security:
+    autoconfigure:
+        exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /api-docs
+    enabled: true
+  packagesToScan: br.com.blog.controller.impl
+  packages-to-exclude: br.com.blog.commons.controller, br.com.blog.entities
+  show-atuator: true
+  auto-tag-classes: false
+# JWT
+jwt:
+  secret: _@POE&L3tF?65O9j4z&L5!nU2B!eT65_
+  expiration: 86400 # token com durao de 1 dias
 debug: '${DEBUG:@debug.properties@}'
 trace: '${TRACE:@trace.properties@}'
 server:
@@ -69,11 +87,3 @@ management:
     web:
       exposure:
         include: '*'
-info:
-  app:
-    name: '@project.artifactId@'
-    description: '@project.description@'
-    version: '@project.version@'
-    encoding: '@project.build.sourceEncoding@'
-    java:
-      version: '@java.version@'

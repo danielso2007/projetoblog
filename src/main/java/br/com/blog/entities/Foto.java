@@ -55,8 +55,7 @@ public class Foto extends BaseEntity {
 		this.dataCriacao = dataCriacao;
 	}
 
-	public Foto(String arquivo, String path, Date dataCriacao,
-			@NotNull(message = "O álbum não pode ser nulo") Album album) {
+	public Foto(String arquivo, String path, Date dataCriacao, Album album) {
 		this.arquivo = arquivo;
 		this.path = path;
 		this.dataCriacao = dataCriacao;

@@ -1,11 +1,11 @@
 package br.com.blog.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import br.com.blog.commons.repositories.IBaseRepository;
 import br.com.blog.entities.Album;
 
 @Repository
-public interface AlbumRepository extends JpaRepository<Album, Long> {
+public interface AlbumRepository extends IBaseRepository<Album, Long> {
 
 }

@@ -52,7 +52,6 @@ class AlbumRepositoryTest {
 		album = new Album().titulo(TITULO).descricao(DESCRICAO);
 		album.setDataCriacao(dataCriacao);
 		album.setDataAtualizacao(dataAtualizacao);
-		
 	}
 
 	@Test

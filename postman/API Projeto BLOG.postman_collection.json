@@ -1,0 +1,1168 @@
+{
+	"info": {
+		"_postman_id": "7a664770-baaa-4d84-b77a-a10ad4a90be0",
+		"name": "API Projeto BLOG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login - Token",
+			"item": [
+				{
+					"name": "Login - Iniciar",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Limpa as variaveis //",
+									"pm.collectionVariables.clear();",
+									"",
+									"pm.collectionVariables.set(\"projeto.blog.token\", \"\");",
+									"",
+									"pm.collectionVariables.set(\"projeto.blog.nome\", \"Administrador\");",
+									"pm.collectionVariables.set(\"projeto.blog.email\", \"admin@email.com\");",
+									"pm.collectionVariables.set(\"projeto.blog.senha\", \"1q2w3e\");",
+									"",
+									"pm.collectionVariables.set(\"projeto.blog.url\", \"localhost:8080/api/v1\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const resp = pm.response.json();",
+									"    pm.collectionVariables.set(\"projeto.blog.token\", resp.token);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{projeto.blog.email}}\",\n    \"password\": \"{{projeto.blog.senha}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/auth",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear Token",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"projeto.blog.token\", null);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/auth",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REST - Usuário",
+			"item": [
+				{
+					"name": "Novo usuário",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Daniel Oliveira\",\n    \"email\": \"danielso@email.com\",\n    \"password\": \"1q2w3e4r\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/usuario/novo",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"usuario",
+								"novo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/usuario",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/usuario/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"usuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/usuario/3",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"usuario",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Teste usuário 1\",\n    \"email\": \"testeusuario01@email.com\",\n    \"senha\": \"1q2w3e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/usuario",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Teste usuário 2\",\n    \"email\": \"testeusuario01@email.com\",\n    \"senha\": \"1q2w3e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/usuario/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"usuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REST - Post",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/post",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/post/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"post",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/post/3",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"post",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/post",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/post/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"post",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REST - Album",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/album",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"album"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/album/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"album",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/album/3",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"album",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/album",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"album"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/album/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"album",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REST - Comentário",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/comentario",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"comentario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/comentario/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"comentario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/comentario/3",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"comentario",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/comentario",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"comentario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/comentario/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"comentario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REST - Foto",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/foto",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"foto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/foto/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"foto",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/foto/3",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"foto",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/foto",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"foto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/foto/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"foto",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REST - Imagem",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/imagem",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"imagem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/imagem/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"imagem",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/imagem/3",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"imagem",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/imagem",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"imagem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/imagem/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"imagem",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REST - Link",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/link",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/link/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"link",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"url": {
+							"raw": "{{projeto.blog.url}}/link/3",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"link",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{projeto.blog.token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/link",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{projeto.blog.token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{projeto.blog.url}}/link/2",
+							"host": [
+								"{{projeto.blog.url}}"
+							],
+							"path": [
+								"link",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "projeto.blog.email",
+			"value": ""
+		},
+		{
+			"key": "projeto.blog.nome",
+			"value": ""
+		},
+		{
+			"key": "projeto.blog.senha",
+			"value": ""
+		},
+		{
+			"key": "projeto.blog.url",
+			"value": ""
+		},
+		{
+			"key": "projeto.blog.token",
+			"value": ""
+		}
+	]
+}

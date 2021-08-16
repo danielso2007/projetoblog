@@ -67,13 +67,7 @@ class PerfilTest {
 
 	@Test
 	void testToString() {
-		assertEquals("Perfil [nome=USER, getId()=1]", perfil.toString());
+		assertEquals("USER", perfil.toString());
 	}
 	
-	@Test
-	void testToStringRoleNull() {
-		perfil.setRole(null);
-		assertEquals("Perfil [getId()=1]", perfil.toString());
-	}
-
 }
