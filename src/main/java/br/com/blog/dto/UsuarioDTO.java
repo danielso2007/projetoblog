@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class UsuarioDTO extends BaseAuditDTO {
 
 	private static final long serialVersionUID = -1100447355263113948L;
@@ -26,9 +28,16 @@ public class UsuarioDTO extends BaseAuditDTO {
 
 	@NotEmpty(message = "A senha não pode ser vazio")
 	@NotNull(message = "A senha não pode ser nulo")
-	@Length(min = 10, max = 100)
+	@Length(min = 6, max = 100)
+	@JsonIgnore
 	private String senha;
 
+	@NotEmpty(message = "A senha não pode ser vazio")
+	@NotNull(message = "A senha não pode ser nulo")
+	@Length(min = 6, max = 100)
+	private String password;
+
+	@JsonIgnore
 	private Date ultimoAcesso;
 
 	public UsuarioDTO() {
@@ -65,12 +74,40 @@ public class UsuarioDTO extends BaseAuditDTO {
 		this.senha = senha;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public Date getUltimoAcesso() {
 		return ultimoAcesso;
 	}
 
 	public void setUltimoAcesso(Date ultimoAcesso) {
 		this.ultimoAcesso = ultimoAcesso;
+	}
+
+	public UsuarioDTO nome(String nome) {
+		setNome(nome);
+		return this;
+	}
+
+	public UsuarioDTO email(String email) {
+		setEmail(email);
+		return this;
+	}
+
+	public UsuarioDTO senha(String senha) {
+		setSenha(senha);
+		return this;
+	}
+
+	public UsuarioDTO ultimoAcesso(Date ultimoAcesso) {
+		setUltimoAcesso(ultimoAcesso);
+		return this;
 	}
 
 	@Override

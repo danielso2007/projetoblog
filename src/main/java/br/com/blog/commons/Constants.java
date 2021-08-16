@@ -6,7 +6,15 @@ public final class Constants {
 	public static final String V1 = "v1/";
 	public static final String ROOT_URL = "/api/";
 	
-	public static final String USUARIOS = ROOT_URL + V1 + "usuarios";
+	public static final String ALBUM = ROOT_URL + V1 + "album";
+	public static final String COMENTARIO = ROOT_URL + V1 + "comentario";
+	public static final String FOTO = ROOT_URL + V1 + "foto";
+	public static final String IMAGEM = ROOT_URL + V1 + "imagem";
+	public static final String LINK = ROOT_URL + V1 + "link";
+	public static final String POST = ROOT_URL + V1 + "post";
+	public static final String USUARIO = ROOT_URL + V1 + "usuario";
+	
+	public static final String AUTH = ROOT_URL + V1 + "auth";
 	
 	public static final String DATE_FORMAT_FULL = "dd/MM/yyyy HH:mm:ss";
 	public static final String DATE_FORMAT_DATE = "dd/MM/yyyy";

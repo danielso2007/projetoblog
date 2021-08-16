@@ -75,8 +75,7 @@ public class Perfil extends BaseEntity implements GrantedAuthority {
 
 	@Override
 	public String toString() {
-		return "Perfil [" + (role != null ? "nome=" + role + ", " : "") + (getId() != null ? "getId()=" + getId() : "")
-				+ "]";
+		return role != null ? role.toString() : null;
 	}
 
 }

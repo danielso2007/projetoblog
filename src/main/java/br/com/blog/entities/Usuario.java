@@ -1,5 +1,6 @@
 package br.com.blog.entities;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -67,7 +68,7 @@ public class Usuario extends BaseAudit implements UserDetails {
 	@OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Comentario> comentarios;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Perfil> perfis;
 
 	public Usuario() {
@@ -190,6 +191,13 @@ public class Usuario extends BaseAudit implements UserDetails {
 		return this;
 	}
 
+	public void addPerfil(Perfil perfil) {
+		if (perfis == null) {
+			perfis = new ArrayList<>();
+		}
+		perfis.add(perfil);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -259,7 +267,7 @@ public class Usuario extends BaseAudit implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		return false;
+		return getEnabled();
 	}
 
 }
