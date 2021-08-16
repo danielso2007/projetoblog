@@ -28,7 +28,7 @@ import br.com.blog.entities.BaseEntity;
 public abstract class BaseService<E extends BaseEntity, K extends Serializable, R extends IBaseRepository<E, K>>
 		implements IBaseService<E, K, R> {
 
-	Logger logger = LoggerFactory.getLogger(BaseService.class);
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 	public static final String ANONYMOUS = "Anonymous";
 	public static final String ENTIDADE_NAO_PODE_SER_NULA = "A entidade não pode ser nula.";

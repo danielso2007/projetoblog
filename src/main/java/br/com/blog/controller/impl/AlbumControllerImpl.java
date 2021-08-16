@@ -3,15 +3,18 @@ package br.com.blog.controller.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.blog.commons.controller.impl.BaseController;
+import br.com.blog.controller.AlbumController;
 import br.com.blog.dto.AlbumDTO;
 import br.com.blog.entities.Album;
 import br.com.blog.mapper.AlbumMapper;
 import br.com.blog.repositories.AlbumRepository;
 import br.com.blog.services.AlbumService;
 
-public class AlbumControllerImpl extends BaseController<Album, AlbumDTO, Long, AlbumRepository, AlbumService> {
+@RestController
+public class AlbumControllerImpl extends BaseController<Album, AlbumDTO, Long, AlbumRepository, AlbumService> implements AlbumController {
 
 	@Autowired
 	AlbumMapper mapper;
