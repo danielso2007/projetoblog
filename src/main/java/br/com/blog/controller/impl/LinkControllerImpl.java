@@ -1,6 +1,7 @@
 package br.com.blog.controller.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,17 +27,17 @@ public class LinkControllerImpl extends BaseController<Link, LinkDTO, Long, Link
 
 	@Override
 	public LinkDTO toDto(Link entity) {
-		return null;
+		return mapper.toDTO(entity);
 	}
 
 	@Override
 	public List<LinkDTO> toDto(List<Link> list) {
-		return null;
+		return list.stream().map(v -> mapper.toDTO(v)).collect(Collectors.toList());
 	}
 
 	@Override
 	public Link toEntity(LinkDTO dto) {
-		return null;
+		return mapper.toEntity(dto);
 	}
 
 }

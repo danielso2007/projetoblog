@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.blog.commons.controller.IBaseController;
 import br.com.blog.commons.repositories.IBaseRepository;
@@ -36,14 +37,14 @@ public abstract class BaseController<E extends BaseEntity, D extends BaseEntityD
 	}
 
 	@Override
-	public ResponseEntity<D> create(@Valid E object) {
-		return getService().save(object).map(this::toDto).map(ResponseEntity.status(HttpStatus.CREATED)::body)
+	public ResponseEntity<D> create(@Valid @RequestBody D object) {
+		return getService().save(toEntity(object)).map(this::toDto).map(ResponseEntity.status(HttpStatus.CREATED)::body)
 				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@Override
-	public ResponseEntity<D> update(@Valid E object, K id) {
-		return getService().update(object, id).map(this::toDto).map(ResponseEntity::ok)
+	public ResponseEntity<D> update(@Valid @RequestBody D object, K id) {
+		return getService().update(toEntity(object), id).map(this::toDto).map(ResponseEntity::ok)
 				.orElse(ResponseEntity.notFound().build());
 	}
 

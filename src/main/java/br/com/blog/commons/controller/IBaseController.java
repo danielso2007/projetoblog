@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import br.com.blog.commons.Constants;
@@ -46,7 +47,7 @@ public interface IBaseController<E extends BaseEntity, D extends BaseEntityDTO, 
 			@ApiResponse(responseCode = "404", description = "Não foi possível cadastrar o registro."),
 			@ApiResponse(responseCode = "500", description = "Erro interno do servidor") })
 	ResponseEntity<D> create(
-			@Parameter(description = "Registro a ser adicionado. Não pode ser nulo ou vazio.", required = true) @Valid E object);
+			@Parameter(description = "Registro a ser adicionado. Não pode ser nulo ou vazio.", required = true) @Valid @RequestBody D object);
 
 	@ResponseStatus(HttpStatus.OK)
 	@PutMapping(value = "/{id}", produces = { Constants.APPLICATION_JSON_UTF_8 })
@@ -55,7 +56,7 @@ public interface IBaseController<E extends BaseEntity, D extends BaseEntityDTO, 
 			@ApiResponse(responseCode = "404", description = "Registro não encontrado."),
 			@ApiResponse(responseCode = "500", description = "Erro interno do servidor") })
 	ResponseEntity<D> update(
-			@Parameter(description = "O registro a ser atualizado.", required = true) @Valid E object,
+			@Parameter(description = "O registro a ser atualizado.", required = true) @Valid @RequestBody D object,
 			@Parameter(description = "Id do registro a ser atualizado. Não pode ser vazio.", required = true) K id);
 
 	@ResponseStatus(HttpStatus.OK)

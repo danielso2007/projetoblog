@@ -1,6 +1,7 @@
 package br.com.blog.controller.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -35,17 +36,17 @@ public class UsuarioControllerImpl extends BaseController<Usuario, UsuarioDTO, L
 
 	@Override
 	public UsuarioDTO toDto(Usuario entity) {
-		return null;
+		return mapper.toDTO(entity);
 	}
 
 	@Override
 	public List<UsuarioDTO> toDto(List<Usuario> list) {
-		return null;
+		return list.stream().map(v -> mapper.toDTO(v)).collect(Collectors.toList());
 	}
 
 	@Override
 	public Usuario toEntity(UsuarioDTO dto) {
-		return null;
+		return mapper.toEntity(dto);
 	}
 
 	@Override

@@ -57,6 +57,7 @@ public abstract class BaseService<E extends BaseEntity, K extends Serializable, 
 		return repository;
 	}
 
+	@Transactional
 	@Override
 	public void delete(K id) {
 		logger.debug("Deletando registro {}: {}", getEntityClass(), id);

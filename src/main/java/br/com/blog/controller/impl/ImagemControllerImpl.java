@@ -1,6 +1,7 @@
 package br.com.blog.controller.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,17 +27,17 @@ public class ImagemControllerImpl extends BaseController<Imagem, ImagemDTO, Long
 
 	@Override
 	public ImagemDTO toDto(Imagem entity) {
-		return null;
+		return mapper.toDTO(entity);
 	}
 
 	@Override
 	public List<ImagemDTO> toDto(List<Imagem> list) {
-		return null;
+		return list.stream().map(v -> mapper.toDTO(v)).collect(Collectors.toList());
 	}
 
 	@Override
 	public Imagem toEntity(ImagemDTO dto) {
-		return null;
+		return mapper.toEntity(dto);
 	}
 
 }
