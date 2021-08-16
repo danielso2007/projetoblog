@@ -18,14 +18,16 @@ public interface PostMapper {
 	@Mapping(target = "usuario", ignore = true)
 	@Mapping(target = "comentarios", ignore = true)
 	@Mapping(target = "imagens", ignore = true)
-	public Post toPost(PostDTO dto);
+	public Post toEntity(PostDTO dto);
 
 	@Mapping(target = "dataCriacao", ignore = true)
 	@Mapping(target = "dataAtualizacao", ignore = true)
 	@Mapping(target = "usuario", ignore = true)
 	@Mapping(target = "comentarios", ignore = true)
 	@Mapping(target = "imagens", ignore = true)
-	public void toPost(PostDTO dto, @MappingTarget Post entity);
+	public void toEntity(PostDTO dto, @MappingTarget Post entity);
 
-	public PostDTO toPostDTO(Post entity);
+	@Mapping(target = "dataCriacao", ignore = true)
+	@Mapping(target = "dataAtualizacao", ignore = true)
+	public PostDTO toDTO(Post entity);
 }

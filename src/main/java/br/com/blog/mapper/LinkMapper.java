@@ -16,12 +16,14 @@ public interface LinkMapper {
 	@Mapping(target = "dataCriacao", ignore = true)
 	@Mapping(target = "dataAtualizacao", ignore = true)
 	@Mapping(target = "post", ignore = true)
-	public Link toLink(LinkDTO dto);
+	public Link toEntity(LinkDTO dto);
 
 	@Mapping(target = "dataCriacao", ignore = true)
 	@Mapping(target = "dataAtualizacao", ignore = true)
 	@Mapping(target = "post", ignore = true)
-	public void toLink(LinkDTO dto, @MappingTarget Link entity);
+	public void toEntity(LinkDTO dto, @MappingTarget Link entity);
 
-	public LinkDTO toLinkDTO(Link entity);
+	@Mapping(target = "dataCriacao", ignore = true)
+	@Mapping(target = "dataAtualizacao", ignore = true)
+	public LinkDTO toDTO(Link entity);
 }

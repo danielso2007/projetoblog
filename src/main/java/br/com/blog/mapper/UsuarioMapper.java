@@ -22,7 +22,8 @@ public interface UsuarioMapper {
 	@Mapping(target = "comentarios", ignore = true)
 	@Mapping(target = "perfis", ignore = true)
 	@Mapping(target = "authorities", ignore = true)
-	public Usuario toUsuario(UsuarioDTO dto);
+	@Mapping(target = "password", ignore = true)
+	public Usuario toEntity(UsuarioDTO dto);
 
 	@Mapping(target = "dataCriacao", ignore = true)
 	@Mapping(target = "dataAtualizacao", ignore = true)
@@ -33,7 +34,12 @@ public interface UsuarioMapper {
 	@Mapping(target = "comentarios", ignore = true)
 	@Mapping(target = "perfis", ignore = true)
 	@Mapping(target = "authorities", ignore = true)
-	public void toUsuario(UsuarioDTO dto, @MappingTarget Usuario entity);
+	@Mapping(target = "password", ignore = true)
+	public void toEntity(UsuarioDTO dto, @MappingTarget Usuario entity);
 
-	public UsuarioDTO toUsuarioDTO(Usuario entity);
+	@Mapping(target = "dataCriacao", ignore = true)
+	@Mapping(target = "dataAtualizacao", ignore = true)
+	@Mapping(target = "ultimoAcesso", ignore = true)
+	@Mapping(target = "password", ignore = true)
+	public UsuarioDTO toDTO(Usuario entity);
 }

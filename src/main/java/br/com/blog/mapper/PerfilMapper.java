@@ -12,9 +12,9 @@ public interface PerfilMapper {
 
 	PerfilMapper INSTANCE = Mappers.getMapper(PerfilMapper.class);
 	
-	public Perfil toPerfil(PerfilDTO dto);
+	public Perfil toEntity(PerfilDTO dto);
 
-	public void toPerfil(PerfilDTO dto, @MappingTarget Perfil entity);
+	public void toEntity(PerfilDTO dto, @MappingTarget Perfil entity);
 
-	public PerfilDTO toPerfilDTO(Perfil entity);
+	public PerfilDTO toDTO(Perfil entity);
 }

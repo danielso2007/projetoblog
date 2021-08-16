@@ -17,13 +17,15 @@ public interface AlbumMapper {
 	@Mapping(target = "dataAtualizacao", ignore = true)
 	@Mapping(target = "usuario", ignore = true)
 	@Mapping(target = "fotos", ignore = true)
-	public Album toAlbum(AlbumDTO dto);
+	public Album toEntity(AlbumDTO dto);
 
 	@Mapping(target = "dataCriacao", ignore = true)
 	@Mapping(target = "dataAtualizacao", ignore = true)
 	@Mapping(target = "usuario", ignore = true)
 	@Mapping(target = "fotos", ignore = true)
-	public void toAlbum(AlbumDTO dto, @MappingTarget Album entity);
+	public void toEntity(AlbumDTO dto, @MappingTarget Album entity);
 
-	public AlbumDTO toAlbumDTO(Album entity);
+	@Mapping(target = "dataCriacao", ignore = true)
+	@Mapping(target = "dataAtualizacao", ignore = true)
+	public AlbumDTO toDTO(Album entity);
 }

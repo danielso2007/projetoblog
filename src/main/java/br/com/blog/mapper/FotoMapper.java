@@ -14,10 +14,10 @@ public interface FotoMapper {
 	FotoMapper INSTANCE = Mappers.getMapper(FotoMapper.class);
 	
 	@Mapping(target = "album", ignore = true)
-	public Foto toFoto(FotoDTO dto);
+	public Foto toEntity(FotoDTO dto);
 
 	@Mapping(target = "album", ignore = true)
-	public void toFoto(FotoDTO dto, @MappingTarget Foto entity);
+	public void toEntity(FotoDTO dto, @MappingTarget Foto entity);
 
-	public FotoDTO toFotoDTO(Foto entity);
+	public FotoDTO toDTO(Foto entity);
 }

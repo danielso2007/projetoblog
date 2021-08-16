@@ -15,11 +15,12 @@ public interface ImagemMapper {
 	
 	@Mapping(target = "dataCriacao", ignore = true)
 	@Mapping(target = "post", ignore = true)
-	public Imagem toImagem(ImagemDTO dto);
+	public Imagem toEntity(ImagemDTO dto);
 
 	@Mapping(target = "dataCriacao", ignore = true)
 	@Mapping(target = "post", ignore = true)
-	public void toImagem(ImagemDTO dto, @MappingTarget Imagem entity);
+	public void toEntity(ImagemDTO dto, @MappingTarget Imagem entity);
 
-	public ImagemDTO toImagemDTO(Imagem entity);
+	@Mapping(target = "dataCriacao", ignore = true)
+	public ImagemDTO toDTO(Imagem entity);
 }

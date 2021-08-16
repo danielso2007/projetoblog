@@ -17,13 +17,15 @@ public interface ComentarioMapper {
 	@Mapping(target = "dataAtualizacao", ignore = true)
 	@Mapping(target = "usuario", ignore = true)
 	@Mapping(target = "post", ignore = true)
-	public Comentario toComentario(ComentarioDTO dto);
+	public Comentario toEntity(ComentarioDTO dto);
 
 	@Mapping(target = "dataCriacao", ignore = true)
 	@Mapping(target = "dataAtualizacao", ignore = true)
 	@Mapping(target = "usuario", ignore = true)
 	@Mapping(target = "post", ignore = true)
-	public void toComentario(ComentarioDTO dto, @MappingTarget Comentario entity);
+	public void toEntity(ComentarioDTO dto, @MappingTarget Comentario entity);
 
-	public ComentarioDTO toComentarioDTO(Comentario entity);
+	@Mapping(target = "dataCriacao", ignore = true)
+	@Mapping(target = "dataAtualizacao", ignore = true)
+	public ComentarioDTO toDTO(Comentario entity);
 }
