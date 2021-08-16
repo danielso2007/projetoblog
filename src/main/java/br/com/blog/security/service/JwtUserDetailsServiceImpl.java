@@ -2,8 +2,6 @@ package br.com.blog.security.service;
 
 import java.util.Optional;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,8 +15,6 @@ import br.com.blog.services.UsuarioService;
 @Service
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
-	private static final Log logger = LogFactory.getLog(JwtUserDetailsServiceImpl.class);
-
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -26,9 +22,7 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Optional<Usuario> user = usuarioService.findByEmail(email);
 		if (user.isEmpty()) {
-			String msg = String.format("Nenhum usuário encontrado com username '%s'", email);
-			logger.error(msg);
-			throw new UsernameNotFoundException(msg);
+			throw new UsernameNotFoundException("Nenhum usuário encontrado");
 		} else {
 			return JwtUserFactory.create(user.get());
 		}
