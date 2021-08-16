@@ -10,12 +10,14 @@ import br.com.blog.dto.FotoDTO;
 import br.com.blog.entities.Foto;
 import br.com.blog.repositories.FotoRepository;
 import br.com.blog.services.FotoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @CrossOrigin(origins = "*")
 @ExposesResourceFor(Foto.class)
 @RequestMapping(Constants.FOTO)
 @Tag(name = "Foto", description = "As foto de um álbum de um usuário.")
+@SecurityRequirement(name = "ProjetoBlogAPI")
 public interface FotoController extends IBaseController<Foto, FotoDTO, Long, FotoRepository, FotoService> {
 
 }

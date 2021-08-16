@@ -10,12 +10,14 @@ import br.com.blog.dto.LinkDTO;
 import br.com.blog.entities.Link;
 import br.com.blog.repositories.LinkRepository;
 import br.com.blog.services.LinkService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @CrossOrigin(origins = "*")
 @ExposesResourceFor(Link.class)
 @RequestMapping(Constants.LINK)
 @Tag(name = "Link", description = "Os links de um comentário.")
+@SecurityRequirement(name = "ProjetoBlogAPI")
 public interface LinkController extends IBaseController<Link, LinkDTO, Long, LinkRepository, LinkService> {
 
 }

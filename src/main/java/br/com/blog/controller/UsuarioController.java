@@ -22,12 +22,14 @@ import br.com.blog.services.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @CrossOrigin(origins = "*")
 @ExposesResourceFor(Usuario.class)
 @RequestMapping(Constants.USUARIO)
 @Tag(name = "Usuário", description = "Os usuário da API")
+@SecurityRequirement(name = "ProjetoBlogAPI")
 public interface UsuarioController
 		extends IBaseController<Usuario, UsuarioDTO, Long, UsuarioRepository, UsuarioService> {
 

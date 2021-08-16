@@ -10,12 +10,14 @@ import br.com.blog.dto.PostDTO;
 import br.com.blog.entities.Post;
 import br.com.blog.repositories.PostRepository;
 import br.com.blog.services.PostService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @CrossOrigin(origins = "*")
 @ExposesResourceFor(Post.class)
 @RequestMapping(Constants.POST)
 @Tag(name = "Post", description = "Os post de um usuário.")
+@SecurityRequirement(name = "ProjetoBlogAPI")
 public interface PostController extends IBaseController<Post, PostDTO, Long, PostRepository, PostService> {
 
 }

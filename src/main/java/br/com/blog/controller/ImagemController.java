@@ -10,12 +10,14 @@ import br.com.blog.dto.ImagemDTO;
 import br.com.blog.entities.Imagem;
 import br.com.blog.repositories.ImagemRepository;
 import br.com.blog.services.ImagemService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @CrossOrigin(origins = "*")
 @ExposesResourceFor(Imagem.class)
 @RequestMapping(Constants.IMAGEM)
 @Tag(name = "Imagens", description = "As imagens de um post")
+@SecurityRequirement(name = "ProjetoBlogAPI")
 public interface ImagemController extends IBaseController<Imagem, ImagemDTO, Long, ImagemRepository, ImagemService> {
 
 }

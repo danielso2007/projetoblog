@@ -37,6 +37,17 @@ spring:
   security:
     autoconfigure:
         exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /api-docs
+    enabled: true
+  packagesToScan: br.com.blog.controller.impl
+  packages-to-exclude: br.com.blog.commons.controller, br.com.blog.entities
+  show-atuator: true
+  auto-tag-classes: false
 # JWT
 jwt:
   secret: _@POE&L3tF?65O9j4z&L5!nU2B!eT65_
